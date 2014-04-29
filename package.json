@@ -1,0 +1,16 @@
+{
+  "author": "Dan Kantor <dan@ex.fm>",
+  "name": "easy-date-helper",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dankantor/easy-date-helper",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dankantor/easy-date-helper.git"
+  },
+  "dependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
