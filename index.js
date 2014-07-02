@@ -1,5 +1,5 @@
 // day names in ordered array
-var dayStrings = [
+module.exports.dayStrings = [
     'Sunday',
     'Monday',
     'Tuesday',
@@ -10,7 +10,7 @@ var dayStrings = [
 ];
 
 // day abbreviations in ordered array
-var dayStringsAbbreviated = [
+module.exports.dayStringsAbbreviated = [
     'Sun',
     'Mon',
     'Tue',
@@ -22,7 +22,7 @@ var dayStringsAbbreviated = [
 
 // change 0 index list to 1
 // add '0' before single digits
-var fixMonth = function(month){
+module.exports.fixMonth = function(month){
     var m = month + 1;
     if (m < 10){
         m = '0' + m;
@@ -31,7 +31,7 @@ var fixMonth = function(month){
 }
 
 // month names in ordered array
-var monthStrings = [
+module.exports.monthStrings = [
     'January',
     'February',
     'March',
@@ -47,7 +47,7 @@ var monthStrings = [
 ];
 
 // month abbreviations in ordered array
-var monthStringsAbbreviated = [
+module.exports.monthStringsAbbreviated = [
     'Jan', 
     'Feb',
     'Mar',
@@ -93,16 +93,25 @@ module.exports.fixZeroes = function(minutes){
 }
 
 // common way to display a date time as a string
-module.exports.dateString = function(dateTime){
+module.exports.dateTimeString = function(dateTime){
     var date = new Date(dateTime);
-    var text = dayStringsAbbreviated[date.getDay()] + ', ';
-    text += monthStringsAbbreviated[date.getMonth()] + ' ';
+    var text = this.dayStringsAbbreviated[date.getDay()] + ', ';
+    text += this.monthStringsAbbreviated[date.getMonth()] + ' ';
     text += date.getDate() + ', ';
     text += date.getFullYear() + ' ';
     text += this.to12Hour(date.getHours()) + ':';
     text += this.fixZeroes(date.getMinutes());
     text += this.ampm(date.getHours());
     return text;
+}
+
+// common way to display date as string
+module.exports.dateString = function(dateTime){
+    var date = new Date(dateTime);
+    var text = this.monthStringsAbbreviated[date.getMonth()] + ' ';
+    text += date.getDate() + ', ';
+    text += date.getFullYear() + ' ';
+    return text;   
 }
 
 // return integer as minutes:seconds
